@@ -28,14 +28,14 @@ export const App: React.FC = () => {
   }, [setTodos, setIsError]);
 
   const visibleTodos = React.useMemo(() => {
-    return todos.filter(todo => {
+    return todos.filter(t => {
       if (link === IsActiveLink.Active) {
-        return !todo.completed;
+        return !t.completed;
       } else if (link === IsActiveLink.Completed) {
-        return todo.completed;
+        return t.completed;
       }
 
-      return todo;
+      return t;
     });
   }, [link, todos]);
 

@@ -28,15 +28,15 @@ export const App: React.FC = () => {
   }, [setTodos, setIsError]);
 
   const visibleTodos = React.useMemo(() => {
-    return todos.filter(t => {
-      if (link === IsActiveLink.Active) {
-        return !t.completed;
-      } else if (link === IsActiveLink.Completed) {
-        return t.completed;
-      }
+    if (link === IsActiveLink.Active) {
+      return todos.filter(t => !t.completed);
+    }
 
-      return t;
-    });
+    if (link === IsActiveLink.Completed) {
+      return todos.filter(t => t.completed);
+    }
+
+    return todos;
   }, [link, todos]);
 
   if (!USER_ID) {

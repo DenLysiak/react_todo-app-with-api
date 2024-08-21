@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import * as React from 'react';
@@ -21,7 +22,7 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     dispatch(loadTodos());
-  }, [dispatch]);
+  }, []);
 
   const visibleTodos = React.useMemo(() => {
     if (link === IsActiveLink.Active) {
